@@ -1,9 +1,14 @@
 
-from base import Endpoint, EndpointObj
-from cache import cached
-from workflow import WorkflowEndpoint, Workflow
-from urlparse import urljoin
+import six
+from .base import Endpoint, EndpointObj
+from .cache import cached
+from .workflow import WorkflowEndpoint, Workflow
 from urllib import quote
+
+if six.PY3:
+    from urllib.parse import urljoin
+else:
+    from urlparse import urljoin
 
 __all__ = ['EpisodeEndpoint', 'Episode', 'Mediapackage', 'MediaTrack']
 
